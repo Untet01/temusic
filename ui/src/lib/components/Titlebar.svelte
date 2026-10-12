@@ -103,32 +103,32 @@
 </script>
 
 <!-- `relative` makes this a stacking context, so the account/window dropdowns inside it are capped
-     at this z — it must outrank the panels below (LyricsPanel/QueuePanel, z-30). Theater mode is
-     the exception: it sits at z-40 so dialogs (z-50) can open over it, so the bar has to duck
-     under it instead of the other way round. -->
+      at this z — it must outrank the panels below (LyricsPanel/QueuePanel, z-30). Theater mode is
+      the exception: it sits at z-40 so dialogs (z-50) can open over it, so the bar has to duck
+      under it instead of the other way round. -->
 <header
 	data-tauri-drag-region
 	class="relative {ui.theaterOpen ? 'z-0' : 'z-50'} flex h-9 shrink-0 select-none items-center justify-between border-b border-border/60 bg-background"
 >
 	<!-- macOS overlay style floats the traffic lights over the top-left of the webview, so the row
-         starts clear of them. `trafficLightPosition` in tauri.macos.conf.json centres them in this
-         36px bar and insets them 14px (#189); they end near 68px, so 70px plus the logo's margin
-         leaves about as much space after them as before them. -->
+          starts clear of them. `trafficLightPosition` in tauri.macos.conf.json centres them in this
+          36px bar and insets them 14px (#189); they end near 68px, so 70px plus the logo's margin
+          leaves about as much space after them as before them. -->
 	<div class="flex h-full items-center {win.chrome === 'overlay' ? 'pl-[70px]' : ''}">
 		<div class="flex h-full items-center gap-2 px-3">
-			<img src={favicon} alt="Limusic" class="h-4 w-4 shrink-0 rounded-sm object-cover" />
-			<span class="text-xs font-medium tracking-wide text-muted-foreground">Limusic</span>
+			<img src={favicon} alt="Temusic" class="h-4 w-4 shrink-0 rounded-sm object-cover" />
+			<span class="text-xs font-medium tracking-wide text-muted-foreground">Temusic</span>
 		</div>
 	</div>
 
 	<div class="flex h-full items-center">
 		<!-- Account first, then the integrations, then the window controls. The drag region lives on
-             <header> only, so these children are ordinary buttons — don't add the attribute here. -->
+              <header> only, so these children are ordinary buttons — don't add the attribute here. -->
 		<AccountMenu />
 		<div class="mx-1.5 h-4 w-px bg-border"></div>
 
 		<!-- Paste a YouTube Music link and go to it: the only way into a playlist that is shared by
-             link and never appears in search or the library (#63). -->
+              link and never appears in search or the library (#63). -->
 		<button
 			class="flex h-full w-8 items-center justify-center text-muted-foreground transition-colors hover:bg-accent/10 hover:text-foreground"
 			onclick={() => (ui.linkOpen = true)}
@@ -152,7 +152,7 @@
 				<HugeiconsIcon icon={UserGroup02Icon} class="h-4 w-4" />
 				{#if lt.role !== 'none'}
 					<!-- Discord's status dot with a ping behind it: two layers, because animate-ping
-                         scales and fades the element it's on, so a lone dot would blink out. -->
+                          scales and fades the element it's on, so a lone dot would blink out. -->
 					<span class="absolute -right-0.5 -top-0.5 h-1.5 w-1.5">
 						<span class="absolute inset-0 animate-ping rounded-full bg-emerald-500 opacity-75"
 						></span>
@@ -210,8 +210,8 @@
 		</button>
 
 		<!-- Theater mode: fullscreen, cover and lyrics, nothing else. Next to the mini player because
-             the pair are the same idea in opposite directions (shrink the app / become the screen),
-             and disabled with nothing playing, since there'd be nothing to show. -->
+              the pair are the same idea in opposite directions (shrink the app / become the screen),
+              and disabled with nothing playing, since there'd be nothing to show. -->
 		<button
 			class="flex h-full w-8 items-center justify-center text-muted-foreground transition-colors hover:bg-accent/10 hover:text-foreground disabled:pointer-events-none disabled:opacity-50"
 			onclick={() => (ui.theaterOpen = true)}
@@ -223,8 +223,8 @@
 		</button>
 
 		<!-- Mini player: hides the app to the tray and hands over to the floating widget (mini.rs).
-             It sits with the integrations rather than the window controls because it swaps what
-             you're using, not the size of this window. -->
+              It sits with the integrations rather than the window controls because it swaps what
+              you're using, not the size of this window. -->
 		<button
 			class="flex h-full w-8 items-center justify-center text-muted-foreground transition-colors hover:bg-accent/10 hover:text-foreground"
 			onclick={openMiniPlayer}

@@ -119,7 +119,7 @@
          starts clear of them. `trafficLightPosition` in tauri.macos.conf.json centres them in this
          36px bar and insets them 14px (#189); they end near 68px, so 70px plus the logo's margin
          leaves about as much space after them as before them. -->
-	<div class="flex h-full items-center {win.chrome === 'overlay' ? 'pl-[70px]' : ''}" />
+	<div class="h-full {win.chrome === 'overlay' ? 'w-[70px]' : 'w-0'}"></div>
 
 	<div class="flex h-full items-center">
 		<!-- Account first, then the integrations, then the window controls. The drag region lives on

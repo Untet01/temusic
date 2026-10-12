@@ -109,17 +109,18 @@
 	data-tauri-drag-region
 	class="relative {ui.theaterOpen ? 'z-0' : 'z-50'} flex h-9 shrink-0 select-none items-center justify-between border-b border-border/60 bg-background"
 >
-	<span
-		class="pointer-events-none absolute inset-x-0 text-center text-xs font-medium tracking-wide text-muted-foreground"
-	>
-		Limusic
-	</span>
-
 	<!-- macOS overlay style floats the traffic lights over the top-left of the webview, so the row
          starts clear of them. `trafficLightPosition` in tauri.macos.conf.json centres them in this
          36px bar and insets them 14px (#189); they end near 68px, so 70px plus the logo's margin
          leaves about as much space after them as before them. -->
-	<div class="h-full {win.chrome === 'overlay' ? 'w-[70px]' : 'w-0'}"></div>
+	<div class="flex h-full items-center {win.chrome === 'overlay' ? 'pl-[70px]' : ''}">
+		<!-- Logo and title on the left -->
+		<div class="flex h-full items-center gap-2 px-3">
+			<!-- Logo placeholder - replace with actual logo component if available -->
+			<div class="h-5 w-5 shrink-0 rounded bg-primary/20"></div>
+			<span class="text-xs font-medium tracking-wide text-muted-foreground">Limusic</span>
+		</div>
+	</div>
 
 	<div class="flex h-full items-center">
 		<!-- Account first, then the integrations, then the window controls. The drag region lives on

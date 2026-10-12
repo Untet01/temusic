@@ -29,6 +29,7 @@
 	import { anchorMenu, fitMenu, NO_ANCHOR } from '$lib/menu';
 	import { t } from '$lib/i18n.svelte';
 	import { connectLastfm, disconnectLastfm, lastfm, watchLastfm } from '$lib/lastfm.svelte';
+	import favicon from '$lib/assets/favicon.svg';
 
 	// `w` is this window; `win` (imported) is the shared frame state.
 	const w = getCurrentWindow();
@@ -114,10 +115,8 @@
          36px bar and insets them 14px (#189); they end near 68px, so 70px plus the logo's margin
          leaves about as much space after them as before them. -->
 	<div class="flex h-full items-center {win.chrome === 'overlay' ? 'pl-[70px]' : ''}">
-		<!-- Logo and title on the left -->
 		<div class="flex h-full items-center gap-2 px-3">
-			<!-- Logo placeholder - replace with actual logo component if available -->
-			<div class="h-5 w-5 shrink-0 rounded bg-primary/20"></div>
+			<img src={favicon} alt="Limusic" class="h-4 w-4 shrink-0 rounded-sm object-cover" />
 			<span class="text-xs font-medium tracking-wide text-muted-foreground">Limusic</span>
 		</div>
 	</div>

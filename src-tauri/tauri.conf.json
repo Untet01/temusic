@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "limusic",
+  "productName": "temusic",
   "version": "1.3.0-rc.3",
-  "identifier": "com.limusic.desktop",
+  "identifier": "com.temusic.desktop",
   "build": {
     "frontendDist": "../ui/build",
     "devUrl": "http://localhost:5183",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "Limusic",
+        "title": "Temusic",
         "width": 1200,
         "height": 800,
         "minWidth": 900,
